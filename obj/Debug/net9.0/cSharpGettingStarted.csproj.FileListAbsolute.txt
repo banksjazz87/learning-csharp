@@ -1,0 +1,14 @@
+/Users/chris/Documents/cSharpGettingStarted/bin/Debug/net9.0/cSharpGettingStarted
+/Users/chris/Documents/cSharpGettingStarted/bin/Debug/net9.0/cSharpGettingStarted.deps.json
+/Users/chris/Documents/cSharpGettingStarted/bin/Debug/net9.0/cSharpGettingStarted.runtimeconfig.json
+/Users/chris/Documents/cSharpGettingStarted/bin/Debug/net9.0/cSharpGettingStarted.dll
+/Users/chris/Documents/cSharpGettingStarted/bin/Debug/net9.0/cSharpGettingStarted.pdb
+/Users/chris/Documents/cSharpGettingStarted/obj/Debug/net9.0/cSharpGettingStarted.GeneratedMSBuildEditorConfig.editorconfig
+/Users/chris/Documents/cSharpGettingStarted/obj/Debug/net9.0/cSharpGettingStarted.AssemblyInfoInputs.cache
+/Users/chris/Documents/cSharpGettingStarted/obj/Debug/net9.0/cSharpGettingStarted.AssemblyInfo.cs
+/Users/chris/Documents/cSharpGettingStarted/obj/Debug/net9.0/cSharpGettingStarted.csproj.CoreCompileInputs.cache
+/Users/chris/Documents/cSharpGettingStarted/obj/Debug/net9.0/cSharpGettingStarted.dll
+/Users/chris/Documents/cSharpGettingStarted/obj/Debug/net9.0/refint/cSharpGettingStarted.dll
+/Users/chris/Documents/cSharpGettingStarted/obj/Debug/net9.0/cSharpGettingStarted.pdb
+/Users/chris/Documents/cSharpGettingStarted/obj/Debug/net9.0/cSharpGettingStarted.genruntimeconfig.cache
+/Users/chris/Documents/cSharpGettingStarted/obj/Debug/net9.0/ref/cSharpGettingStarted.dll
