@@ -12,3 +12,4 @@
 /Users/chris/Documents/cSharpGettingStarted/obj/Debug/net9.0/cSharpGettingStarted.pdb
 /Users/chris/Documents/cSharpGettingStarted/obj/Debug/net9.0/cSharpGettingStarted.genruntimeconfig.cache
 /Users/chris/Documents/cSharpGettingStarted/obj/Debug/net9.0/ref/cSharpGettingStarted.dll
+/Users/chris/Documents/cSharpGettingStarted/obj/Debug/net9.0/cSharpGettingStarted.sourcelink.json
