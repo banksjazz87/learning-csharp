@@ -1,24 +1,19 @@
-﻿string str = "The quick brown fox jumps over the lazy dog.";
+﻿string permission = "Fart";
+int level = 10;
 
-// convert the message into a char array
-char[] charMessage = str.ToCharArray();
+string adminMessage = level > 55 ? "Welcome, Super Admin user." : "Welcome, Admin user.";
+string managerMessage = level >= 20 ? "Contact an Admin for access." : "You do not have sufficient privileges.";
 
-// Reverse the chars
-Array.Reverse(charMessage);
-int x = 0;
 
-// count the o's
-foreach (char i in charMessage) 
+if (permission.Contains("Admin"))
 {
-    if (i == 'o')
-    {
-        x++;
-    } 
+    Console.WriteLine(adminMessage);
 }
-
-// convert it back to a string
-string new_message = new String(charMessage);
-
-// print it out
-Console.WriteLine(new_message);
-Console.WriteLine($"'o' appears {x} times.");
+else if (!permission.Contains("Admin") && permission.Contains("Manager"))
+{
+    Console.WriteLine(managerMessage);
+}
+else
+{
+    Console.WriteLine("You do not have sufficient priveleges");
+}
