@@ -1,60 +1,95 @@
-﻿// SKU = Stock Keeping Unit. 
-// SKU value format: <product #>-<2-letter color code>-<size code>
-string sku = "01-MN-L";
+﻿// string? readResult;
+// bool validEntry = false;
+// Console.WriteLine("Enter a string containing at least three characters:");
 
-string[] product = sku.Split('-');
+// do
+// {
+//     readResult = Console.ReadLine();
+//     if (readResult != null)
+//     {
+//         if (readResult.Length >= 3)
+//         {
+//             validEntry = true;
+//         }
+//         else
+//         {
+//             Console.WriteLine("Your input is invalid, please try again.");
+//         }
+//     }
+// } while (readResult == null);
 
-string type = "";
-string color = "";
-string size = "";
+// string? readResult;
+// int numericValue = 0;
+// bool validNumber = false;
 
+// // validNumber = int.TryParse(readResult, out numericValue);
+// Console.WriteLine("Please provide an integer value between 5 and 10.");
 
-switch (product[0])
+// do
+// {
+//     readResult = Console.ReadLine();
+//     validNumber = int.TryParse(readResult, out numericValue);
+
+//     if (validNumber)
+//     {
+//         if (numericValue >= 5 && numericValue <= 10)
+//         {
+//             Console.WriteLine("Thank you for providing a valid integer!");
+//         }
+//         else
+//         {
+//             Console.WriteLine($"Your provided number of: {numericValue} is not between 5 and 10.");
+//         }
+//     }
+//     else
+//     {
+//         Console.WriteLine($"Your provided number of: {numericValue} is not between 5 and 10.");
+//     }
+// } while (!validNumber);
+
+// string? adminResult;
+// Console.WriteLine("Please type your user role (Administrator, Manager or User).");
+
+// do
+// {
+//     adminResult = Console.ReadLine().Trim();
+//     string lowerAdminResult = adminResult.ToLower();
+
+//     if (lowerAdminResult == "administrator" || lowerAdminResult == "manager" || lowerAdminResult == "user")
+//     {
+//         Console.WriteLine($"Your input value {adminResult} has been accepted!");
+//     }
+//     else
+//     {
+//         Console.WriteLine($"The role name that you provided {adminResult} is not valid.  Enter your role name (Administrator, Manager, or User)");
+//         adminResult = null;
+//     }
+
+// } while (adminResult == null);
+
+string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
+int stringsCount = myStrings.Length;
+
+string myString = "";
+int periodLocation = 0;
+
+for (int i = 0; i < stringsCount; i++)
 {
-    case "01":
-        type = "Sweat shirt";
-        break;
-    case "02":
-        type = "T-Shirt";
-        break;
-    case "03":
-        type = "Sweat pants";
-        break;
-    default:
-        type = "Other";
-        break;
+    myString = myStrings[i];
+    periodLocation = myString.IndexOf(".");
+
+    string mySentence;
+
+    // extract sentences from each string and display them one at a time
+    while (periodLocation != -1)
+    {
+        mySentence = myString.Remove(periodLocation);
+        myString = myString.Substring(periodLocation + 1);
+        myString = myString.TrimStart();
+        periodLocation = myString.IndexOf(".");
+        Console.WriteLine(mySentence);
+    }
+    mySentence = myString.Trim();
+    Console.WriteLine(mySentence);
 }
 
-
-switch (product[1])
-{
-    case "BL":
-        color = "Black";
-        break;
-    case "MN":
-        color = "Maroon";
-        break;
-    default:
-        color = "White";
-        break;
-}
-
-switch (product[2])
-{
-    case "S":
-        size = "Small";
-        break;
-    case "M":
-        size = "Medium";
-        break;
-    case "L":
-        size = "Large";
-        break;
-    default:
-        size = "One Size Fits All";
-        break;
-}
-
-
-
-Console.WriteLine($"Product: {size} {color} {type}");
