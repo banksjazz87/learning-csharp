@@ -1,110 +1,69 @@
-﻿// string[] pallets = ["B14", "A11", "B12", "A13"];
+﻿// int invoiceNumber = 1201;
+// decimal productShares = 25.4568m;
+// decimal subtotal = 2750.00m;
+// decimal taxPercentage = .15825m;
+// decimal total = 3185.19m;
 
-// Console.WriteLine("Sorted...");
-// Array.Sort(pallets);
-// foreach (var pallet in pallets)
-// {
-//     Console.WriteLine($"-- {pallet}");
-// }
-
-// Console.WriteLine("");
-// Console.WriteLine("Reversed...");
-// Array.Reverse(pallets);
-// foreach (var pallet in pallets)
-// {
-//     Console.WriteLine($"--- {pallet}");
-// }
-
-// string[] pallets = ["B14", "A11", "B12", "A13"];
-// Console.WriteLine("");
-
-// Console.WriteLine($"Before: {pallets[0].ToLower()}");
-// Array.Clear(pallets, 0, 2);
-
-// if (pallets[0] != null)
-//     Console.WriteLine($"After: {pallets[0].ToLower()}");
-
-// Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
-// foreach (var pallet in pallets)
-// {
-//     Console.WriteLine($"-- {pallet}");
-// }
+// Console.WriteLine($"Invoice Number: {invoiceNumber}");
+// Console.WriteLine($"    Shares: {productShares:N3} Product");
+// Console.WriteLine($"    Sub Total: {subtotal:C}");
+// Console.WriteLine($"        Tax: {taxPercentage:P2}");
+// Console.WriteLine($"    Total Billed: {total:C}");
 
 
-// string[] pallets = ["B14", "A11", "B12", "A13"];
-// Console.WriteLine("");
-
-// Array.Clear(pallets, 0, 2);
-// Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
-// foreach (var pallet in pallets)
-// {
-//     Console.WriteLine($"-- {pallet}");
-// }
-
-// Console.WriteLine("");
-// Array.Resize(ref pallets, 6);
-// Console.WriteLine($"Resizing 6 ... count: {pallets.Length}");
-
-// pallets[4] = "C01";
-// pallets[5] = "C02";
-
-// foreach (var pallet in pallets)
-// {
-//     Console.WriteLine($"-- {pallet}");
-// }
-
-// Console.WriteLine("");
-// Array.Resize(ref pallets, 3);
-// Console.WriteLine($"Resizing 3 ... count: {pallets.Length}");
-
-// foreach (var pallet in pallets)
-// {
-//     Console.WriteLine($"-- {pallet}");
-// }
-
-// using System.Reflection.PortableExecutable;
-
-// string value = "abc123";
-// Char[] valueArray = value.ToCharArray();
-// Array.Reverse(valueArray);
-// // string result = new string(valueArray);
-// string result = String.Join(",", valueArray);
+// string first = "Hello";
+// string second = "World";
+// string result = string.Format("{0} {1}!", first, second);
 // Console.WriteLine(result);
 
-// string[] items = result.Split(',');
-// foreach (string item in items)
-// {
-//     Console.WriteLine(item);
-// }
+// string input = "Pad this";
+// Console.WriteLine(input.PadLeft(12, '-'));
+// Console.WriteLine(input.PadRight(12, '-'));
 
-// string pangram = "The quick brown fox jumps over the lazy dog";
-// string[] arrayOfPan = pangram.Split(' ');
+// Console.WriteLine("1234567890123456789012345678901234567890");
 
-// for (int i = 0; i < arrayOfPan.Length; i++)
-// {
-//     Char[] current = arrayOfPan[i].ToCharArray();
-//     Array.Reverse(current);
-//     string stringOfCurrent = String.Join("", current);
-//     arrayOfPan[i] = stringOfCurrent;
-// }
-// string finalString = String.Join(" ", arrayOfPan);
-// Console.WriteLine($"Final: {finalString}");
+// string paymentId = "769C";
+// string payeeName = "Mr. Stephen Ortega";
+// string paymountAmount = "$5,000.00";
+
+// var formattedLine = paymentId.PadRight(6);
+// formattedLine += payeeName.PadRight(24);
+// formattedLine += paymountAmount.PadLeft(10);
+
+// Console.WriteLine(formattedLine);
+
+string customerName = "Ms. Barros";
+
+string currentProduct = "Magic Yield";
+int currentShares = 2975000;
+decimal currentReturn = 0.1275m;
+decimal currentProfit = 55000000.0m;
+
+string newProduct = "Glorious Future";
+decimal newReturn = 0.13125m;
+decimal newProfit = 63000000.0m;
+
+// Your logic here
+
+string comparisonMessage = "";
+comparisonMessage += currentProduct.PadRight(20);
+comparisonMessage += String.Format("{0:P}", currentReturn).PadRight(10);
+comparisonMessage += String.Format("{0:C}", currentProfit);
+comparisonMessage += $"\n";
+
+comparisonMessage += newProduct.PadRight(20);
+comparisonMessage += String.Format("{0:P2}", newReturn).PadRight(10);
+comparisonMessage += String.Format("{0:C2}", newProfit);
 
 
+// Your logic here
+Console.WriteLine($"Dear {customerName},");
+Console.WriteLine("As a customer of our Magic Yield offering we are excited to tell you about a new financial product that would dramatically increase your return.\n");
+Console.WriteLine($"Currently, you own {currentShares:N2} shares at a return of {currentReturn:P2}.\n");
+Console.WriteLine($"Our new product, {newProduct} offers a return of {newReturn:P2}.  Given your current volume, your potential profit would be  {newProfit:C2}\n");
+Console.WriteLine("Here's a quick comparison:\n");
+Console.WriteLine("123456789123456789123456789123456789123456789123456789");
+Console.WriteLine(comparisonMessage);
 
-string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
-string[] orderArray = orderStream.Split(',');
-Array.Sort(orderArray);
 
-foreach (var order in orderArray)
-{
-    if (order.Length == 4)
-    {
-        Console.WriteLine(order);
-    }
-    else
-    {
-        Console.WriteLine($"{order} \t- Error");
-    }
-}
 
