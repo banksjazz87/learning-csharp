@@ -1,44 +1,55 @@
-﻿using System.ComponentModel;
+﻿using System.IO.Pipelines;
+using System;
 
-string[,] corporate =
+Random random = new Random();
+
+Console.WriteLine("Would you like to play? (Y/N)");
+if (ShouldPlay())
 {
-    {"Robert", "Bavin"}, {"Simon", "Bright"},
-    {"Kim", "Sinclair"}, {"Aashrita", "Kamath"},
-    {"Sarah", "Delucchi"}, {"Sinan", "Ali"}
-};
-
-string[,] external =
-{
-    {"Vinnie", "Ashton"}, {"Cody", "Dysart"},
-    {"Shay", "Lawrence"}, {"Daren", "Valdes"}
-};
-
-string externalDomain = "hayworth.com";
-
-
-string GetEmailName (string firstName, string lastName, string domain = "contoso.com")
-{
-    string abbFirst = firstName.Substring(0, 2);
-    return abbFirst.ToLower() + lastName.ToLower() + "@" + domain;
+    PlayGame();
 }
 
-void DisplayEmail(string[,] corporate, string[,] external)
+void PlayGame()
 {
-    for (int i = 0; i < corporate.GetLength(0); i++)
-    {
-        // display internal email addresses
-        string email = GetEmailName(corporate[i, 0], corporate[i, 1]);
-        Console.WriteLine(email);
+    var play = true;
 
-    }
-
-    for (int i = 0; i < external.GetLength(0); i++)
+    while (play)
     {
-        // display external email addresses
-        string email = GetEmailName(external[i, 0], external[i, 1], externalDomain);
-        Console.WriteLine(email);
+        Random rand = new Random();
+        int target = rand.Next(1, 5);
+        int roll = rand.Next(1, 5);
+
+        Console.WriteLine($"Roll a number greater than {target} to win!");
+        Console.WriteLine($"You rolled a {roll}");
+        Console.WriteLine(WinOrLose(target, roll));
+        Console.WriteLine("\nPlay again? (Y/N)");
+
+        play = ShouldPlay();
     }
 }
 
-DisplayEmail(corporate, external);
+bool ShouldPlay()
+{
+    var response = Console.ReadLine();
 
+    if (response != null && response.ToLower() == "y")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+string WinOrLose(int target, int roll)
+{
+    if (roll > target)
+    {
+        return "Congratulations, you won!";
+    }
+    else
+    {
+        return "Don't quit your day job, you just lost!";
+    }
+}
