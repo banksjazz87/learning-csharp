@@ -1,55 +1,67 @@
-﻿using System.IO.Pipelines;
-using System;
+﻿using System;
+using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
 
-Random random = new Random();
-
-Console.WriteLine("Would you like to play? (Y/N)");
-if (ShouldPlay())
+string[] pettingZoo =
 {
-    PlayGame();
+    "alpacas", "capybaras", "chickens", "ducks", "emus", "geese",
+    "goats", "iguanas", "kangaroos", "lemurs", "llamas", "macaws",
+    "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
+};
+
+PlanSchoolVisit("School A");
+PlanSchoolVisit("School B", 3);
+PlanSchoolVisit("School C", 2);
+
+
+void PlanSchoolVisit(string schoolName, int groups = 6)
+{
+    RandomizeAnimals();
+    string[,] group = AssignGroup(groups);
+    Console.WriteLine(schoolName);
+    PrintGroup(group);
 }
 
-void PlayGame()
+
+void RandomizeAnimals()
 {
-    var play = true;
+    Random random = new Random();
 
-    while (play)
+    for (int i = 0; i < pettingZoo.Length; i++)
     {
-        Random rand = new Random();
-        int target = rand.Next(1, 5);
-        int roll = rand.Next(1, 5);
-
-        Console.WriteLine($"Roll a number greater than {target} to win!");
-        Console.WriteLine($"You rolled a {roll}");
-        Console.WriteLine(WinOrLose(target, roll));
-        Console.WriteLine("\nPlay again? (Y/N)");
-
-        play = ShouldPlay();
-    }
-}
-
-bool ShouldPlay()
-{
-    var response = Console.ReadLine();
-
-    if (response != null && response.ToLower() == "y")
-    {
-        return true;
-    }
-    else
-    {
-        return false;
+        int r = random.Next(i, pettingZoo.Length);
+        string temp = pettingZoo[i];
+        pettingZoo[i] = pettingZoo[r];
+        pettingZoo[r] = temp;
     }
 }
 
-string WinOrLose(int target, int roll)
+string[,] AssignGroup(int groups = 6)
 {
-    if (roll > target)
+    string[,] result = new string[groups, pettingZoo.Length / groups];
+
+    int start = 0;
+    for (int i = 0; i < groups; i++)
     {
-        return "Congratulations, you won!";
+        for (int j = 0; j < result.GetLength(1); j++)
+        {
+            result[i, j] = pettingZoo[start++];
+        }
     }
-    else
+    return result;
+}
+
+void PrintGroup(string[,] group)
+{
+    for (int i = 0; i < group.GetLength(0); i++)
     {
-        return "Don't quit your day job, you just lost!";
+
+        string currentString = "";
+        for (int j = 0; j < group.GetLength(1); j++)
+        {
+            currentString += group[i, j] + " ";
+        }
+        Console.WriteLine($"Group {i + 1}: {currentString}");
     }
 }
+
